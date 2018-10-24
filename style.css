@@ -1,0 +1,237 @@
+body {
+    background-color: #323438;
+	font-family: Arial, Georgia, serif;
+	margin: 0px;
+	padding: 0px;
+	overflow: scroll;
+	min-width: 1903px;
+	padding-top: 6vh;
+}
+
+.gameReelWrapper {
+	margin: 0px;
+	padding: 0px;
+	height: 365px;
+	border-bottom: 40px solid #1c1c1c;
+	width: 100%;
+}
+
+.button {
+	color: white;
+	background-color: #1c1c1c;
+	border: none;
+	width: 3%;
+	height: 369px;
+	display: inline;
+	margin: 0px;
+	position: relative;
+	z-index: 2;
+}
+
+.gameReel {
+	display: inline-block;
+	position: relative;
+	table-layout:fixed;
+	border-spacing: 1px;
+	min-height: 365px;
+	margin: 0px;
+	z-index: 1;
+	width: 94%;
+}
+
+.gameReelRow {
+	height: 365px;
+	min-height: 365px;
+}
+
+.gameReelCell {
+	min-height: 365px;
+	border: 2px solid white;
+	table-layout: fixed;
+	width: 20%;
+}
+
+.singleGame {
+	color: white;
+	border-collapse: collapse;
+	table-layout: fixed;
+}
+
+.singleGame tr {
+	border-bottom: 1px solid white;
+	table-layout: fixed;
+	height: 93px;
+	min-height: 93px;
+}
+
+.teamsAndScore {
+	table-layout:fixed;
+	height: 93px;
+	min-height: 93px;
+	top: 0;
+}
+
+.team {
+	width: 30vh;
+	table-layout:fixed;
+	height: 93px;
+	min-height: 93px;
+}
+
+.teamScore {
+	border-left: 1px solid white;
+	border-right: 1px solid white;
+	font-size: 150%;
+	width: 40vh;
+}
+
+.eventList {
+	width: 100%;
+	table-layout: fixed;
+}
+
+.eventList tr {
+	height: 4vh;
+	font-size: 11px;
+	color: white;
+	margin: 0px;
+	padding: 0px;
+}
+
+.eventList td {
+	text-align: left;
+	width: 100%;
+}
+
+.content {
+	background-color: #1c1c1c;
+	color: #dddddd;
+	padding: 5%;
+	position: static;
+	width: 70%;
+	height: 100vh;
+	margin: auto;
+}
+
+.statTable {
+	background-color: #323438;
+	display: inline-block;
+	width: 45%;
+	height: 50%;
+	font-size: 80%;
+	overflow: scroll;
+	border-collapse:collapse;
+	text-align: center;
+}
+
+.statTable tr {
+	width: 100%;
+}
+
+.statTable tr:first-child td {
+	font-weight: bold;
+	text-decoration: underline;
+}
+
+.statTable tr:nth-child(even) {
+	background-color: #4b4d51;
+}
+
+.statTable td {
+	width: 48px;
+}
+
+.statTable td:first-child  {
+	text-align: left;
+	width: 145px;
+}
+
+.footer {
+	height: 30vh;
+	color: white;
+	background-color: #323438;
+	text-align: center;
+	font-size: 200%;
+}
+
+.form {
+	border: solid #000000 2px;
+}
+
+label {
+	display: block;
+	width:50px;
+}
+input[type=number]{
+    width: 70px;
+} 
+
+.moi {
+	vertical-align: top;
+}
+
+#slideLeft {
+	float: left;
+}
+#slideRight {
+	float: right;
+}
+
+.button:hover {
+
+}
+
+ul {
+	position: fixed;
+	width: 100%;
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	background-color: #1c1c1c;
+	z-index: 90;
+	display: flex;
+	justify-content: center;
+	height: 6vh;
+	top: 0;
+}
+
+
+li {
+    float: left;
+	margin-right: 30px;
+	margin-left: 30px;
+	width: 200px;
+	border-bottom: 5px solid #1c1c1c;
+	transition: border 0.25s ease-in-out;
+}
+
+li a {
+    display: block;
+	color: white;
+	text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+	font-weight: 600;
+	font-size: 120%;
+}
+
+eh {
+	float: right;
+}
+
+li:last-child {
+    border-right: none;
+}
+
+li:hover {
+	border-bottom: 5px solid #ff0000;
+}
+
+.active {
+	color: red;
+}
+
+.column {
+	float: left;
+}
