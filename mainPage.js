@@ -1,8 +1,8 @@
 window.onload = function() {
 	
-	//style for active cell
-	var activeCell = document.getElementById("gameReelCell0");
-	activeCell.style.borderColor = "red";
+//style for active cell
+var activeCell = document.getElementById("gameReelCell0");
+activeCell.style.borderColor = "red";
 
 // get and display nhl gamedata
 data =  {'action': "getStats"};
@@ -69,16 +69,26 @@ data =  {'action': "getStats"};
 					var assist1;
 					var assist2;
 					
-					team = result[i].gameStats.liveData.plays.allPlays[j].team.triCode;
-					scorer = result[i].gameStats.liveData.plays.allPlays[j].players[0].player.fullName;
-					if (result[i].gameStats.liveData.plays.allPlays[j].players[1].playerType == "Assist"){
-						assist1 = (result[i].gameStats.liveData.plays.allPlays[j].players[1].player.fullName);
-					} else { assist1 = ""}
-					if (result[i].gameStats.liveData.plays.allPlays[j].players[2].playerType == "Assist"){
-						assist2 = (", "+result[i].gameStats.liveData.plays.allPlays[j].players[2].player.fullName);
-					} else { assist2 = ""}
-								
-					cell.innerHTML = ("("+team+")"+" "+scorer+"<br>"+assist1+assist2);
+					if (result[i].gameStats.liveData.plays.allPlays[j].players.length >= 3) { //checks if the goal had 2 assists or not to avoid undefined
+						team = result[i].gameStats.liveData.plays.allPlays[j].team.triCode;
+						scorer = result[i].gameStats.liveData.plays.allPlays[j].players[0].player.fullName;
+						if (result[i].gameStats.liveData.plays.allPlays[j].players[1].playerType == "Assist"){
+							assist1 = (result[i].gameStats.liveData.plays.allPlays[j].players[1].player.fullName);
+						} else { assist1 = ""}
+						if (result[i].gameStats.liveData.plays.allPlays[j].players[2].playerType == "Assist"){
+							assist2 = (", "+result[i].gameStats.liveData.plays.allPlays[j].players[2].player.fullName);
+						} else { assist2 = ""}
+									
+						cell.innerHTML = ("("+team+")"+" "+scorer+"<br>"+assist1+assist2);
+					} else {
+						team = result[i].gameStats.liveData.plays.allPlays[j].team.triCode;
+						scorer = result[i].gameStats.liveData.plays.allPlays[j].players[0].player.fullName;
+						if (result[i].gameStats.liveData.plays.allPlays[j].players[1].playerType == "Assist"){
+							assist1 = (result[i].gameStats.liveData.plays.allPlays[j].players[1].player.fullName);
+						} else { assist1 = ""}
+									
+						cell.innerHTML = ("("+team+")"+" "+scorer+"<br>"+assist1);						
+					}
 				}
 			}	
 		}
@@ -97,8 +107,8 @@ $('.gameReelCell').click(function(){
 	
 	
 	//get team names of selected game
-	var team1td = $('.singleGame .teamsAndScore .team1', this);
-	var team2td = $('.singleGame .teamsAndScore .team2', this);	
+	var team1td = $('.singleGame .team1', this);
+	var team2td = $('.singleGame .team2', this);	
 	var team1 = $(team1td).html();
 	var team2 = $(team2td).html();
 		

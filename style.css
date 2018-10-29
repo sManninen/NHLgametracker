@@ -3,9 +3,9 @@ body {
 	font-family: Arial, Georgia, serif;
 	margin: 0px;
 	padding: 0px;
-	overflow: scroll;
-	min-width: 1903px;
 	padding-top: 6vh;
+	min-width: 1903px;
+	max-width: 1903px;
 }
 
 .gameReelWrapper {
@@ -20,69 +20,71 @@ body {
 	color: white;
 	background-color: #1c1c1c;
 	border: none;
-	width: 3%;
-	height: 369px;
+	width: 56.5px;
+	height: 365px;
 	display: inline;
 	margin: 0px;
 	position: relative;
 	z-index: 2;
 }
 
-.gameReel {
-	display: inline-block;
-	position: relative;
-	table-layout:fixed;
-	border-spacing: 1px;
-	min-height: 365px;
+.wrapper2 {
+	height: 365px;
 	margin: 0px;
 	z-index: 1;
-	width: 94%;
+	width: 1790px;
+	display: inline-block;
+	font-size: 0;
+	position: relative;
+	white-space: nowrap;
+	overflow: hidden;
 }
 
-.gameReelRow {
+.gameReel {
 	height: 365px;
-	min-height: 365px;
+	margin: 0px;
+	z-index: 1;
+	width: 350vw;
+	position: absolute;
 }
 
 .gameReelCell {
-	min-height: 365px;
+	height: 365px;
 	border: 2px solid white;
-	table-layout: fixed;
-	width: 20%;
+	width: 358px;
+	display: inline-block;
+	margin: 0px;
+	font-size: 16px;
+	text-align: center;
+	box-sizing: border-box;
+	overflow: scroll;
+	overflow-x: hidden;
 }
 
 .singleGame {
 	color: white;
 	border-collapse: collapse;
-	table-layout: fixed;
-}
-
-.singleGame tr {
 	border-bottom: 1px solid white;
-	table-layout: fixed;
 	height: 93px;
 	min-height: 93px;
+	display: table;
 }
 
-.teamsAndScore {
-	table-layout:fixed;
+.team1, .team2 {
+	display: table-cell;
+	width: 105px;
 	height: 93px;
 	min-height: 93px;
-	top: 0;
-}
-
-.team {
-	width: 30vh;
-	table-layout:fixed;
-	height: 93px;
-	min-height: 93px;
+	vertical-align: middle;
 }
 
 .teamScore {
+	display: table-cell;
 	border-left: 1px solid white;
 	border-right: 1px solid white;
 	font-size: 150%;
-	width: 40vh;
+	width: 150px;
+	vertical-align: middle;
 }
 
 .eventList {

@@ -19,28 +19,40 @@
 
 <div class="gameReelWrapper">
 <input type="button" id="slideLeft" value="◄" class='button' ></input>
-<table class="gameReel" id="gameReel">
-<tr class="gameReelRow" id="gameReelRow">
-<th valign="top" class="gameReelCell" id="gameReelCell0">
-<table class="singleGame" id="singleGame0">
-<colgroup><col style="width:30%"><col style="width:40%"><col style="width:30%"></colgroup> 
-<tr class="teamsAndScore" id="teamsAndScore">
-<td class="team" id="teamOne0"></td>
-<td class="teamScore" id="teamScore0"></td>
-<td class="team" id="teamTwo0"></td>
-</tr>
-</table>
+
+<div class="wrapper2" id="wrapper2">
+<div class="gameReel" id="gameReel">
+
+<div class="gameReelCell" id="gameReelCell0">
+<div class="singleGame" id="singleGame0">
+<div class="team1" id="teamOne0"></div>
+<div class="teamScore" id="teamScore0"></div>
+<div class="team2" id="teamTwo0"></div>
+</div>
 <table class="eventList" id="eventList0">
 </table>
-</th>
+</div>
 
-<th valign="top" class="gameReelCell" id="gameReelCell1"><table class="singleGame" id="singleGame1"><colgroup><col style="width:30%"><col style="width:40%"><col style="width:30%"></colgroup> <tr class="teamsAndScore"><td class="team" id="teamOne1"></td><td class="teamScore" id="teamScore1"></td><td class="team" id="teamTwo1"></td></tr></table><table class="eventList" id="eventList1"></table></th>
-<th valign="top" class="gameReelCell" id="gameReelCell2"><table class="singleGame" id="singleGame2"><colgroup><col style="width:30%"><col style="width:40%"><col style="width:30%"></colgroup> <tr class="teamsAndScore"><td class="team" id="teamOne2"></td><td class="teamScore" id="teamScore2"></td><td class="team" id="teamTwo2"></td></tr></table><table class="eventList" id="eventList2"></table></th>
-<th valign="top" class="gameReelCell" id="gameReelCell3"><table class="singleGame" id="singleGame3"><colgroup><col style="width:30%"><col style="width:40%"><col style="width:30%"></colgroup> <tr class="teamsAndScore"><td class="team" id="teamOne3"></td><td class="teamScore" id="teamScore3"></td><td class="team" id="teamTwo3"></td></tr></table><table class="eventList" id="eventList3"></table></th>
-<th valign="top" class="gameReelCell" id="gameReelCell4"><table class="singleGame" id="singleGame4"><colgroup><col style="width:30%"><col style="width:40%"><col style="width:30%"></colgroup> <tr class="teamsAndScore"><td class="team" id="teamOne4"></td><td class="teamScore" id="teamScore4"></td><td class="team" id="teamTwo4"></td></tr></table><table class="eventList" id="eventList4"></table></th>
+<div class="gameReelCell" id="gameReelCell1"><div class="singleGame" id="singleGame1"><div class="team1" id="teamOne1"></div><div class="teamScore" id="teamScore1"></div><div class="team2" id="teamTwo1"></div></div><table class="eventList" id="eventList1"></table></div>
+<div class="gameReelCell" id="gameReelCell2"><div class="singleGame" id="singleGame2"><div class="team1" id="teamOne2"></div><div class="teamScore" id="teamScore2"></div><div class="team2" id="teamTwo2"></div></div><table class="eventList" id="eventList2"></table></div>
+<div class="gameReelCell" id="gameReelCell3"><div class="singleGame" id="singleGame3"><div class="team1" id="teamOne3"></div><div class="teamScore" id="teamScore3"></div><div class="team2" id="teamTwo3"></div></div><table class="eventList" id="eventList3"></table></div>
+<div class="gameReelCell" id="gameReelCell4"><div class="singleGame" id="singleGame4"><div class="team1" id="teamOne4"></div><div class="teamScore" id="teamScore4"></div><div class="team2" id="teamTwo4"></div></div><table class="eventList" id="eventList4"></table></div>
+<div class="gameReelCell" id="gameReelCell5"><div class="singleGame" id="singleGame5"><div class="team1" id="teamOne5"></div><div class="teamScore" id="teamScore5"></div><div class="team2" id="teamTwo5"></div></div><table class="eventList" id="eventList5"></table></div>
+<div class="gameReelCell" id="gameReelCell6"><div class="singleGame" id="singleGame6"><div class="team1" id="teamOne6"></div><div class="teamScore" id="teamScore6"></div><div class="team2" id="teamTwo6"></div></div><table class="eventList" id="eventList6"></table></div>
+<div class="gameReelCell" id="gameReelCell7"><div class="singleGame" id="singleGame7"><div class="team1" id="teamOne7"></div><div class="teamScore" id="teamScore7"></div><div class="team2" id="teamTwo7"></div></div><table class="eventList" id="eventList7"></table></div>
+<div class="gameReelCell" id="gameReelCell8"><div class="singleGame" id="singleGame8"><div class="team1" id="teamOne8"></div><div class="teamScore" id="teamScore8"></div><div class="team2" id="teamTwo8"></div></div><table class="eventList" id="eventList8"></table></div>
+<div class="gameReelCell" id="gameReelCell9"><div class="singleGame" id="singleGame9"><div class="team1" id="teamOne9"></div><div class="teamScore" id="teamScore9"></div><div class="team2" id="teamTwo9"></div></div><table class="eventList" id="eventList9"></table></div>
+<div class="gameReelCell" id="gameReelCell10"><div class="singleGame" id="singleGame10"><div class="team1" id="teamOne10"></div><div class="teamScore" id="teamScore10"></div><div class="team2" id="teamTwo10"></div></div><table class="eventList" id="eventList10"></table></div>
+<div class="gameReelCell" id="gameReelCell11"><div class="singleGame" id="singleGame11"><div class="team1" id="teamOne11"></div><div class="teamScore" id="teamScore11"></div><div class="team2" id="teamTwo11"></div></div><table class="eventList" id="eventList11"></table></div>
+<div class="gameReelCell" id="gameReelCell12"><div class="singleGame" id="singleGame12"><div class="team1" id="teamOne12"></div><div class="teamScore" id="teamScore12"></div><div class="team2" id="teamTwo12"></div></div><table class="eventList" id="eventList12"></table></div>
+<div class="gameReelCell" id="gameReelCell13"><div class="singleGame" id="singleGame13"><div class="team1" id="teamOne13"></div><div class="teamScore" id="teamScore13"></div><div class="team2" id="teamTwo13"></div></div><table class="eventList" id="eventList13"></table></div>
+<div class="gameReelCell" id="gameReelCell14"><div class="singleGame" id="singleGame14"><div class="team1" id="teamOne14"></div><div class="teamScore" id="teamScore14"></div><div class="team2" id="teamTwo14"></div></div><table class="eventList" id="eventList14"></table></div>
+<div class="gameReelCell" id="gameReelCell15"><div class="singleGame" id="singleGame15"><div class="team1" id="teamOne15"></div><div class="teamScore" id="teamScore15"></div><div class="team2" id="teamTwo15"></div></div><table class="eventList" id="eventList15"></table></div>
+<div class="gameReelCell" id="gameReelCell16"><div class="singleGame" id="singleGame16"><div class="team1" id="teamOne16"></div><div class="teamScore" id="teamScore16"></div><div class="team2" id="teamTwo16"></div></div><table class="eventList" id="eventList16"></table></div>
 
-</tr>
-</table>
+</div>
+</div>
+
 <input type="button" id="slideRight" value="►" class='button' ></input>
 </div>
 

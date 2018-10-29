@@ -18,24 +18,26 @@ function def(){
 	// Create connection
 	$conn = new mysqli($servername, $username, $password, $dbname);
 	
-	//get gamedata
-	$ch = curl_init('http://statsapi.web.nhl.com/api/v1/game/2017030321/feed/live');
+	$games = array();
+	
+	//get schedule
+	$ch = curl_init('http://statsapi.web.nhl.com/api/v1/schedule');
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 	$result=curl_exec($ch);
-	$match1=json_decode($result, true);
+	$schedule=json_decode($result, true);
 	curl_close($ch);
 	
-	$ch = curl_init('http://statsapi.web.nhl.com/api/v1/game/2017030311/feed/live');
-	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-	$result=curl_exec($ch);
-	$match2=json_decode($result, true);
-	curl_close($ch);
+	//get current games from schedule
+	foreach($schedule["dates"][0]["games"] as $value){
+		$ch = curl_init('http://statsapi.web.nhl.com'.$value["link"].'');
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+		$result=curl_exec($ch);
+		$match=json_decode($result, true);
+		curl_close($ch);				
+		array_push($games, $match);		
+	}
 	
 	$vientidata = array();
-	
-	$games = array();	
-	array_push($games, $match1);
-	array_push($games, $match2);
 	
 	foreach($games as $value){
 		

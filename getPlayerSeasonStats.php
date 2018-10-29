@@ -7,10 +7,37 @@ if ($_REQUEST['away'] != "" && $_REQUEST['home'] != "" ) {
 function def() {
 	
 	$teamKey = array(
-	"WPG" => "winnipeg jets",
-	"VGK" => "vegas golden knights",
+	"NJD" => "new jersey devils",
+	"NYI" => "new york islanders",
+	"NYR" => "new york rangers",
+	"PHI" => "philadelphia flyers",
+	"PIT" => "pittsburgh penguins",
+	"BOS" => "boston bruins",
+	"BUF" => "buffalo sabres",
+	"MTL" => "montréal canadiens",
+	"OTT" => "ottawa senators",
+	"TOR" => "toronto maple leafs",
+	"CAR" => "carolina hurricanes",
+	"FLA" => "florida panthers",
+	"TBL" => "tampa bay lightning",
 	"WSH" => "washington capitals",
-	"TBL" => "tampa bay lightning"
+	"CHI" => "chicago blackhawks",
+	"DET" => "detroit red wings",
+	"NSH" => "nashville predators",
+	"STL" => "st. louis blues",
+	"CGY" => "calgary flames",
+	"COL" => "colorado avalanche",
+	"EDM" => "edmonton oilers",
+	"VAN" => "vancouver canucks",
+	"ANA" => "anaheim ducks",
+	"DAL" => "dallas stars",
+	"LAK" => "los angeles kings",
+	"SJS" => "san jose sharks",
+	"CBJ" => "columbus blue jackets",
+	"MIN" => "minnesota wild",
+	"WPG" => "winnipeg jets",
+	"ARI" => "arizona coyotes",
+	"VGK" => "vegas golden knights"
 	);
 	
 	$awayTeam = $teamKey[$_REQUEST['away']];
