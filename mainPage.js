@@ -69,26 +69,36 @@ data =  {'action': "getStats"};
 					var assist1;
 					var assist2;
 					
-					if (result[i].gameStats.liveData.plays.allPlays[j].players.length >= 3) { //checks if the goal had 2 assists or not to avoid undefined
+					//conditions are to check how many players are involved in a goal.
+					//this is to avoid undefined errors. For example the second player -
+					// - in a goal can be either the first assist or the goalie, if there are no assists.
+					//an unassisted empty net goal would include only the goal scorer.
+					if (result[i].gameStats.liveData.plays.allPlays[j].players.length >= 3) {
 						team = result[i].gameStats.liveData.plays.allPlays[j].team.triCode;
 						scorer = result[i].gameStats.liveData.plays.allPlays[j].players[0].player.fullName;
 						if (result[i].gameStats.liveData.plays.allPlays[j].players[1].playerType == "Assist"){
 							assist1 = (result[i].gameStats.liveData.plays.allPlays[j].players[1].player.fullName);
-						} else { assist1 = ""}
+						} else { assist1 = "unassisted"}
 						if (result[i].gameStats.liveData.plays.allPlays[j].players[2].playerType == "Assist"){
 							assist2 = (", "+result[i].gameStats.liveData.plays.allPlays[j].players[2].player.fullName);
 						} else { assist2 = ""}
 									
 						cell.innerHTML = ("("+team+")"+" "+scorer+"<br>"+assist1+assist2);
-					} else {
+					} else if (result[i].gameStats.liveData.plays.allPlays[j].players.length == 2) {
 						team = result[i].gameStats.liveData.plays.allPlays[j].team.triCode;
 						scorer = result[i].gameStats.liveData.plays.allPlays[j].players[0].player.fullName;
 						if (result[i].gameStats.liveData.plays.allPlays[j].players[1].playerType == "Assist"){
 							assist1 = (result[i].gameStats.liveData.plays.allPlays[j].players[1].player.fullName);
-						} else { assist1 = ""}
+						} else { assist1 = "unassisted"}
 									
 						cell.innerHTML = ("("+team+")"+" "+scorer+"<br>"+assist1);						
-					}
+					} else {
+						team = result[i].gameStats.liveData.plays.allPlays[j].team.triCode;
+						scorer = result[i].gameStats.liveData.plays.allPlays[j].players[0].player.fullName;
+						assist1 = "unassisted"
+									
+						cell.innerHTML = ("("+team+")"+" "+scorer+"<br>"+assist1);	
+					} 
 				}
 			}	
 		}
