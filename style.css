@@ -1,5 +1,5 @@
 body {
-    background-color: #323438;
+    background-color: #1c1c1c;
 	font-family: Arial, Georgia, serif;
 	margin: 0px;
 	padding: 0px;
@@ -8,24 +8,30 @@ body {
 	max-width: 1903px;
 }
 
+#t1 {
+	background: url(taustakuva);
+	height: 100%;
+	width: 100%;
+	min-width: 1903px;
+	position: absolute;
+	z-index: -100;
+	margin-top: 150px;
+}
+
 .gameReelWrapper {
 	margin: 0px;
 	padding: 0px;
 	height: 365px;
-	border-bottom: 40px solid #1c1c1c;
 	width: 100%;
+	background-color: #323438;
 }
 
-.button {
-	color: white;
+.fakeBorder {
+	height: 40px;
+	width: 100%;
 	background-color: #1c1c1c;
-	border: none;
-	width: 56.5px;
-	height: 365px;
-	display: inline;
-	margin: 0px;
-	position: relative;
-	z-index: 2;
+	border-bottom: 3px solid #b2b2b2;
+	box-sizing: border-box;
 }
 
 .wrapper2 {
@@ -57,73 +63,148 @@ body {
 	font-size: 16px;
 	text-align: center;
 	box-sizing: border-box;
-	overflow: scroll;
-	overflow-x: hidden;
+	overflow: hidden;
 }
 
 .singleGame {
 	color: white;
 	border-collapse: collapse;
 	border-bottom: 1px solid white;
-	height: 93px;
-	min-height: 93px;
+	height: 25%;
 	display: table;
+	position: relative;
 }
 
 .team1, .team2 {
 	display: table-cell;
 	width: 105px;
-	height: 93px;
-	min-height: 93px;
-	vertical-align: middle;
+	height: 100%;
+	vertical-align: bottom;
+	position: relative;
+	z-index: 10;
+	color: transparent;
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center;
 }
 
-.teamScore {
+.teamScoreWrapper {
 	display: table-cell;
 	border-left: 1px solid white;
 	border-right: 1px solid white;
+	width: 150px;
+	height: 100%;
+	vertical-align: middle;
+	position: relative;
+	z-index: 10;
+}
+
+.teamScore {
 	font-size: 150%;
 	width: 150px;
-	vertical-align: middle;
+	height: 75%;
+	z-index: 10;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.gameTime {
+	height: 25%;
+}
+
+.wrapper3 {
+	position: relative;
+	overflow-y: scroll;
+	height: 75%;
+	width: 100%;
 }
 
 .eventList {
-	width: 100%;
-	table-layout: fixed;
-}
-
-.eventList tr {
-	height: 4vh;
-	font-size: 11px;
-	color: white;
-	margin: 0px;
-	padding: 0px;
-}
-
-.eventList td {
 	text-align: left;
-	width: 100%;
+	color: white;
+	position: relative;
+	margin: 0;
+	padding: 10px;
+	font-size: 14px;
 }
 
-.content {
+.button {
+	color: white;
+	background-color: #1c1c1c;
+	border: none;
+	width: 56.5px;
+	height: 365px;
+	display: inline;
+	margin: 0px;
+	position: relative;
+	z-index: 2;
+}
+
+.cellButton {
+	padding: 3px;
+	color: white;
+	background-color: #1c1c1c;
+	border: none;
+	width: 25px;
+	height: 25px;
+	margin: 0px;
+	z-index: 12;
+}
+
+.content1 {
 	background-color: #1c1c1c;
 	color: #dddddd;
 	padding: 5%;
+	padding-top: 3%;
+	padding-bottom: 0;
 	position: static;
 	width: 70%;
-	height: 100vh;
+	height: 70vh;
 	margin: auto;
+	margin-top: -3px;
+	border-left: 3px solid #b2b2b2;
+	border-right: 3px solid #b2b2b2;
+}
+
+.content2 {
+	background-color: #1c1c1c;
+	color: #dddddd;
+	padding: 5%;
+	padding-top: 0;
+	padding-bottom: 0;
+	position: static;
+	width: 70%;
+	height: 30vh;
+	margin: auto;
+	border-left: 3px solid #b2b2b2;
+	border-right: 3px solid #b2b2b2;
+}
+
+.teamNames {
+	display: flex;
+	justify-content: space-between;
+	text-align: center;
+	height: 78px;
+}
+
+#teamNameAway, #teamNameHome {
+	width: 45%;
 }
 
 .statTable {
 	background-color: #323438;
 	display: inline-block;
 	width: 45%;
-	height: 50%;
+	height: 70%;
 	font-size: 80%;
-	overflow: scroll;
+	overflow-y: scroll;
 	border-collapse:collapse;
 	text-align: center;
+}
+
+#statTableAwayGoalies, #statTableHomeGoalies{
+	height: 60%;
 }
 
 .statTable tr {
@@ -148,30 +229,6 @@ body {
 	width: 145px;
 }
 
-.footer {
-	height: 30vh;
-	color: white;
-	background-color: #323438;
-	text-align: center;
-	font-size: 200%;
-}
-
-.form {
-	border: solid #000000 2px;
-}
-
-label {
-	display: block;
-	width:50px;
-}
-input[type=number]{
-    width: 70px;
-} 
-
-.moi {
-	vertical-align: top;
-}
-
 #slideLeft {
 	float: left;
 }
@@ -179,61 +236,55 @@ input[type=number]{
 	float: right;
 }
 
-.button:hover {
 
+#footer1, #footer3 {
+	height: 250px;
+	width: 10%;
+	background-color: #1c1c1c;
+	box-sizing: border-box;
+	border-top: 3px solid #b2b2b2;
+	display: inline-block;
+	margin: auto;
+	vertical-align: top;
+}
+
+#footer2 {
+	height: 250px;
+	width: 80%;
+	background-color: #1c1c1c;
+	display: inline-block;
+	margin: auto;
+	vertical-align: top;
+}
+
+.footerContent{
+	color: white;
+	padding: 30px;
+	padding-top: 60px;
+}
+
+.footerTitle {
+	padding-top: 0px;
+	text-align: center;
+	font-size: 200%;
+}
+
+.footerUl {
+	width: 70%;
+	margin-left: 15%;
+}
+
+h1 {
+	text-align: center;
+	padding: 20px;
+	margin: 0;
 }
 
 ul {
-	position: fixed;
-	width: 100%;
-	list-style-type: none;
-	margin: 0;
-	padding: 0;
-	overflow: hidden;
-	background-color: #1c1c1c;
-	z-index: 90;
-	display: flex;
-	justify-content: center;
-	height: 6vh;
-	top: 0;
+	vertical-align: top;
+	column-count: 3;
 }
-
 
 li {
-    float: left;
-	margin-right: 30px;
-	margin-left: 30px;
-	width: 200px;
-	border-bottom: 5px solid #1c1c1c;
-	transition: border 0.25s ease-in-out;
-}
-
-li a {
-    display: block;
-	color: white;
-	text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-	font-weight: 600;
-	font-size: 120%;
-}
-
-eh {
-	float: right;
-}
-
-li:last-child {
-    border-right: none;
-}
-
-li:hover {
-	border-bottom: 5px solid #ff0000;
-}
-
-.active {
-	color: red;
-}
-
-.column {
-	float: left;
+	vertical-align: top;
 }

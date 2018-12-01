@@ -1,4 +1,6 @@
 <?php
+ini_set('max_execution_time', 300);
+
 $servername = "localhost";
 $username = "root";
 $password = "";
@@ -73,7 +75,8 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 				$sql = $conn->prepare("INSERT INTO `".$value["gameData"]["teams"]["away"]["name"]."` (id, name, position, gamesPlayed, goals, assists, points, plusMinus, shots, hits, penaltyMinutes)
 				VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 				$sql->bind_param("issiiiiiiii", $id, $name, $position, $gamesPlayed, $goals, $assists, $points, $plusMinus, $shots, $hits, $penaltyMinutes);
-				$id = $value2["person"]["id"]; $name = $value2["person"]["fullName"];
+				$id = $value2["person"]["id"];
+				$name = $value2["person"]["fullName"];
 				$position = $value2["position"]["code"];
 				$gamesPlayed = $awayStats["stats"][0]["splits"][0]["stat"]["games"]; 
 				$goals = $awayStats["stats"][0]["splits"][0]["stat"]["goals"];
@@ -83,6 +86,23 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 				$shots = $awayStats["stats"][0]["splits"][0]["stat"]["shots"];
 				$hits = $awayStats["stats"][0]["splits"][0]["stat"]["hits"];
 				$penaltyMinutes = $awayStats["stats"][0]["splits"][0]["stat"]["pim"];
+				$sql->execute();
+			}
+			else if ($value2["position"]["code"] == "G" && !empty($awayStats["stats"][0]["splits"])) {
+				$sql = $conn->prepare("INSERT INTO `".$value["gameData"]["teams"]["away"]["name"]."` (id, name, position, gamesPlayed, wins, shotsAgainst, saves, goalsAgainst, savePercentage, goalAgainstAverage, shutouts)
+				VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+				$sql->bind_param("issiiiiiddi", $id, $name, $position, $gamesPlayed, $wins, $shotsAgainst, $saves, $goalsAgainst, $savePercentage, $goalsAgainstAverage, $shutouts);
+				$id = $value2["person"]["id"];
+				$name = $value2["person"]["fullName"];
+				$position = $value2["position"]["code"];
+				$gamesPlayed = $awayStats["stats"][0]["splits"][0]["stat"]["games"]; 
+				$wins = $awayStats["stats"][0]["splits"][0]["stat"]["wins"];
+				$shotsAgainst = $awayStats["stats"][0]["splits"][0]["stat"]["shotsAgainst"];
+				$saves = $awayStats["stats"][0]["splits"][0]["stat"]["saves"];
+				$goalsAgainst = $awayStats["stats"][0]["splits"][0]["stat"]["goalsAgainst"];
+				$savePercentage = $awayStats["stats"][0]["splits"][0]["stat"]["savePercentage"];
+				$goalsAgainstAverage = $awayStats["stats"][0]["splits"][0]["stat"]["goalAgainstAverage"];
+				$shutouts = $awayStats["stats"][0]["splits"][0]["stat"]["shutouts"];
 				$sql->execute();
 			}
 		}
@@ -99,7 +119,8 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 				$sql = $conn->prepare("INSERT INTO `".$value["gameData"]["teams"]["home"]["name"]."` (id, name, position, gamesPlayed, goals, assists, points, plusMinus, shots, hits, penaltyMinutes)
 				VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 				$sql->bind_param("issiiiiiiii", $id, $name, $position, $gamesPlayed, $goals, $assists, $points, $plusMinus, $shots, $hits, $penaltyMinutes);
-				$id = $value2["person"]["id"]; $name = $value2["person"]["fullName"];
+				$id = $value2["person"]["id"];
+				$name = $value2["person"]["fullName"];
 				$position = $value2["position"]["code"];
 				$gamesPlayed = $homeStats["stats"][0]["splits"][0]["stat"]["games"]; 
 				$goals = $homeStats["stats"][0]["splits"][0]["stat"]["goals"];
@@ -109,8 +130,24 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 				$shots = $homeStats["stats"][0]["splits"][0]["stat"]["shots"];
 				$hits = $homeStats["stats"][0]["splits"][0]["stat"]["hits"];
 				$penaltyMinutes = $homeStats["stats"][0]["splits"][0]["stat"]["pim"];
+				$sql->execute();			
+			}	
+			else if ($value2["position"]["code"] == "G" && !empty($homeStats["stats"][0]["splits"])) {
+				$sql = $conn->prepare("INSERT INTO `".$value["gameData"]["teams"]["home"]["name"]."` (id, name, position, gamesPlayed, wins, shotsAgainst, saves, goalsAgainst, savePercentage, goalAgainstAverage, shutouts)
+				VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+				$sql->bind_param("issiiiiiddi", $id, $name, $position, $gamesPlayed, $wins, $shotsAgainst, $saves, $goalsAgainst, $savePercentage, $goalsAgainstAverage, $shutouts);
+				$id = $value2["person"]["id"];
+				$name = $value2["person"]["fullName"];
+				$position = $value2["position"]["code"];
+				$gamesPlayed = $homeStats["stats"][0]["splits"][0]["stat"]["games"]; 
+				$wins = $homeStats["stats"][0]["splits"][0]["stat"]["wins"];
+				$shotsAgainst = $homeStats["stats"][0]["splits"][0]["stat"]["shotsAgainst"];
+				$saves = $homeStats["stats"][0]["splits"][0]["stat"]["saves"];
+				$goalsAgainst = $homeStats["stats"][0]["splits"][0]["stat"]["goalsAgainst"];
+				$savePercentage = $homeStats["stats"][0]["splits"][0]["stat"]["savePercentage"];
+				$goalsAgainstAverage = $homeStats["stats"][0]["splits"][0]["stat"]["goalAgainstAverage"];
+				$shutouts = $homeStats["stats"][0]["splits"][0]["stat"]["shutouts"];
 				$sql->execute();
-				
 			}
 		}
 		

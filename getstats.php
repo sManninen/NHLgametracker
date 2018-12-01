@@ -45,7 +45,7 @@ function def(){
 		$playerStatsHome = array();
 		
 		//get away stats
-		$sql = "SELECT name, position, gamesPlayed, goals, assists, points, plusMinus, shots, hits, penaltyMinutes FROM `".$value["gameData"]["teams"]["away"]["name"]."`";
+		$sql = "SELECT name, position, gamesPlayed, goals, assists, points, plusMinus, shots, hits, penaltyMinutes, wins, shotsAgainst, saves, goalsAgainst, savePercentage, goalAgainstAverage, shutouts FROM `".$value["gameData"]["teams"]["away"]["name"]."`";
 		$result = $conn->query($sql);
 		if ($result->num_rows > 0) {
 			// output data of each row
@@ -57,7 +57,7 @@ function def(){
 		}
 		
 		//get home stats
-		$sql = "SELECT name, position, gamesPlayed, goals, assists, points, plusMinus, shots, hits, penaltyMinutes FROM `".$value["gameData"]["teams"]["home"]["name"]."`";
+		$sql = "SELECT name, position, gamesPlayed, goals, assists, points, plusMinus, shots, hits, penaltyMinutes, wins, shotsAgainst, saves, goalsAgainst, savePercentage, goalAgainstAverage, shutouts FROM `".$value["gameData"]["teams"]["home"]["name"]."`";
 		$result = $conn->query($sql);
 		if ($result->num_rows > 0) {
 			// output data of each row

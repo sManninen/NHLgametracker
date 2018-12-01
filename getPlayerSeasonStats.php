@@ -7,37 +7,37 @@ if ($_REQUEST['away'] != "" && $_REQUEST['home'] != "" ) {
 function def() {
 	
 	$teamKey = array(
-	"NJD" => "new jersey devils",
-	"NYI" => "new york islanders",
-	"NYR" => "new york rangers",
-	"PHI" => "philadelphia flyers",
-	"PIT" => "pittsburgh penguins",
-	"BOS" => "boston bruins",
-	"BUF" => "buffalo sabres",
-	"MTL" => "montréal canadiens",
-	"OTT" => "ottawa senators",
-	"TOR" => "toronto maple leafs",
-	"CAR" => "carolina hurricanes",
-	"FLA" => "florida panthers",
-	"TBL" => "tampa bay lightning",
-	"WSH" => "washington capitals",
-	"CHI" => "chicago blackhawks",
-	"DET" => "detroit red wings",
-	"NSH" => "nashville predators",
-	"STL" => "st. louis blues",
-	"CGY" => "calgary flames",
-	"COL" => "colorado avalanche",
-	"EDM" => "edmonton oilers",
-	"VAN" => "vancouver canucks",
-	"ANA" => "anaheim ducks",
-	"DAL" => "dallas stars",
-	"LAK" => "los angeles kings",
-	"SJS" => "san jose sharks",
-	"CBJ" => "columbus blue jackets",
-	"MIN" => "minnesota wild",
-	"WPG" => "winnipeg jets",
-	"ARI" => "arizona coyotes",
-	"VGK" => "vegas golden knights"
+	"NJD" => "New Jersey Devils",
+	"NYI" => "New York Islanders",
+	"NYR" => "New York Rangers",
+	"PHI" => "Philadelphia Flyers",
+	"PIT" => "Pittsburgh Penguins",
+	"BOS" => "Boston Bruins",
+	"BUF" => "Buffalo Sabres",
+	"MTL" => "Montréal Canadiens",
+	"OTT" => "Ottawa Senators",
+	"TOR" => "Toronto Maple Leafs",
+	"CAR" => "Carolina Hurricanes",
+	"FLA" => "Florida Panthers",
+	"TBL" => "Tampa Bay Lightning",
+	"WSH" => "Washington Capitals",
+	"CHI" => "Chicago Blackhawks",
+	"DET" => "Detroit Red Wings",
+	"NSH" => "Nashville Predators",
+	"STL" => "St. Louis Blues",
+	"CGY" => "Calgary Flames",
+	"COL" => "Colorado Avalanche",
+	"EDM" => "Edmonton Oilers",
+	"VAN" => "Vancouver Canucks",
+	"ANA" => "Anaheim Ducks",
+	"DAL" => "Dallas Stars",
+	"LAK" => "Los Angeles Kings",
+	"SJS" => "San Jose Sharks",
+	"CBJ" => "Columbus Blue Jackets",
+	"MIN" => "Minnesota Wild",
+	"WPG" => "Winnipeg Jets",
+	"ARI" => "Arizona Coyotes",
+	"VGK" => "Vegas Golden Knights"
 	);
 	
 	$awayTeam = $teamKey[$_REQUEST['away']];
@@ -58,7 +58,7 @@ function def() {
 	$playerStatsHome = array();
 	
 	//get away stats
-	$sql = "SELECT name, position, gamesPlayed, goals, assists, points, plusMinus, shots, hits, penaltyMinutes FROM `".$awayTeam."`";
+	$sql = "SELECT name, position, gamesPlayed, goals, assists, points, plusMinus, shots, hits, penaltyMinutes, wins, shotsAgainst, saves, goalsAgainst, savePercentage, goalAgainstAverage, shutouts FROM `".$awayTeam."`";
 	$result = $conn->query($sql);
 	if ($result->num_rows > 0) {
 		// output data of each row
@@ -70,18 +70,20 @@ function def() {
 	}
 	
 	//get home stats
-	$sql = "SELECT name, position, gamesPlayed, goals, assists, points, plusMinus, shots, hits, penaltyMinutes FROM `".$homeTeam."`";
+	$sql = "SELECT name, position, gamesPlayed, goals, assists, points, plusMinus, shots, hits, penaltyMinutes, wins, shotsAgainst, saves, goalsAgainst, savePercentage, goalAgainstAverage, shutouts FROM `".$homeTeam."`";
 	$result = $conn->query($sql);
 	if ($result->num_rows > 0) {
 		// output data of each row
 		while($row = $result->fetch_assoc()) {
 			//print_R($row);
 			//echo"<br></br>";
-			array_push($playerStatsHome, $row);			
+			array_push($playerStatsHome, $row);		
 		}
 	}		
 	
 	$playerStats = array(
+	"homeTeamName" => $homeTeam,
+	"awayTeamName" => $awayTeam,
 	"awayStats" => $playerStatsAway,
 	"homeStats" => $playerStatsHome
 	);	
