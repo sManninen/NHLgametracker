@@ -4,7 +4,9 @@ var actualGameCount;
 	
 //style for active cell
 var activeCell = document.getElementById("gameReelCell0");
-activeCell.style.borderColor = "red";
+activeCell.style.borderColor = "white";
+activeCell.style.backgroundColor = "#4a4b51";
+activeCell.style.color = "white";
 
 var statTableAway = document.getElementById("statTableAway");
 var statTableHome = document.getElementById("statTableHome");
@@ -198,9 +200,13 @@ data =  {'action': "getStats"};
 $('.gameReelCell').click(function(){
 	
 	//style for active cell	
-	activeCell.style.borderColor = "white";
-	this.style.borderColor = "red";	
+	activeCell.style.borderColor = "#b2b2b2";
+	activeCell.style.backgroundColor = "#323438";
+	activeCell.style.color = "#999999";
 	activeCell = this;
+	activeCell.style.borderColor = "white";
+	activeCell.style.backgroundColor = "#4a4b51";
+	activeCell.style.color = "white";
 	
 	//get team names of selected game
 	var team1td = $('.singleGame .team1', this);
@@ -303,7 +309,7 @@ $("#slideRight").click(function(){
 	}
 });
 
-//parallax background
+//parallax background 
 var tausta1 = document.getElementById('t1')
 var scrollheight = document.body.scrollHeight // height of entire document
 var windowheight = window.innerHeight // height of browser window

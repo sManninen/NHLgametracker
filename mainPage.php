@@ -1,18 +1,17 @@
- <!DOCTYPE HTML>
- <html>
- <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
- <link rel="stylesheet" type="text/css" href="style.css">
- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
- <script src="mainPage.js"></script> 
- <title>Testisivu</title>
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="style.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="mainPage.js"></script> 
+<title>Testisivu</title>
 
- </head>
- <body>
+</head>
+<body>
  
- <div id="t1">
- </div>
+<div id="t1"></div>
 
 <div class="gameReelWrapper">
 <input type="button" id="slideLeft" value="◄" class='button' disabled></input>
@@ -62,8 +61,8 @@
 
 <div class="content1">
 
-<h1>Skaters</h1>
 <div class="teamNames"><h1 class="teamName" id="teamNameAway"></h1><h1 class="teamName" id="teamNameHome"></h1></div>
+<div class="teamNames"><h2>Skaters</h2><h2>Skaters</h2></div>
 <table class="statTable" id="statTableAway" style="float:left">
 <tr id="keyRow">
 <td>Player</td><td>POS</td><td>GP</td><td>G</td><td>A</td><td>P</td><td>+/-</td><td>S</td><td>H</td><td>PIM</td>
@@ -78,7 +77,7 @@
 </div>
 
 <div class="content2">
-<h1>Goalies</h1>
+<div class="teamNames"><h2>Goalies</h2><h2>Goalies</h2></div>
 <table class="statTable" id="statTableAwayGoalies" style="float:left">
 <tr id="keyRow">
 <td>Player</td><td>POS</td><td>GP</td><td>W</td><td>SA</td><td>Svs</td><td>GA</td><td>Sv%</td><td>GAA</td><td>SO</td>
