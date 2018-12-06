@@ -1,13 +1,16 @@
 window.onload = function() {
-	
-var actualGameCount;
-	
-//style for active cell
+
+//style for active game
 var activeCell = document.getElementById("gameReelCell0");
 activeCell.style.borderColor = "white";
 activeCell.style.backgroundColor = "#4a4b51";
 activeCell.style.color = "white";
 
+var actualGameCount;
+var team;
+var scorer;
+var assist1;
+var assist2;
 var statTableAway = document.getElementById("statTableAway");
 var statTableHome = document.getElementById("statTableHome");
 var goalieStatTableAway = document.getElementById("statTableAwayGoalies");
@@ -110,11 +113,12 @@ data =  {'action': "getStats"};
 			team2.style.backgroundImage = `url("logos/${result[i].gameStats.gameData.teams.home.triCode}.png")`;
 		
 		
-			if (result[i].gameStats.gameData.status.statusCode != 1) { //checks to see if game has started
+			if (result[i].gameStats.gameData.status.statusCode != 1) { //see if game has started.
 				var numberOfEvents = result[i].gameStats.liveData.plays.allPlays.length;
+				
 				for(j = 0; j < numberOfEvents; j++){
 					
-					// set game times
+					//set game times
 					if(result[i].gameStats.liveData.plays.allPlays[j].result.event == "Game End"){
 						gameTime.innerHTML = "Final";
 					} else if (result[i].gameStats.liveData.plays.allPlays[j].result.event == "Period End"){
@@ -123,23 +127,19 @@ data =  {'action': "getStats"};
 						gameTime.innerHTML = (result[i].gameStats.liveData.plays.allPlays[j].about.periodTime+" / "+period);
 					}
 					
-					if(result[i].gameStats.liveData.plays.allPlays[j].result.event == "Goal"){		
-																
-						var team = "";
-						var scorer = "";
-						var assist1 = "";
-						var assist2 = "";
+					// find the goals
+					if(result[i].gameStats.liveData.plays.allPlays[j].result.event == "Goal"){
 						
-					// find the current period
-					if (result[i].gameStats.liveData.plays.allPlays[j].about.period == 1){
-						period = "1st";
-					} else if (result[i].gameStats.liveData.plays.allPlays[j].about.period == 2){
-						period = "2nd";
-					} else if (result[i].gameStats.liveData.plays.allPlays[j].about.period == 3){
-						period = "3rd";
-					} else if (result[i].gameStats.liveData.plays.allPlays[j].about.period == 4){
-						period = "OT";
-					}
+						// find the current period
+						if (result[i].gameStats.liveData.plays.allPlays[j].about.period == 1){
+							period = "1st";
+						} else if (result[i].gameStats.liveData.plays.allPlays[j].about.period == 2){
+							period = "2nd";
+						} else if (result[i].gameStats.liveData.plays.allPlays[j].about.period == 3){
+							period = "3rd";
+						} else if (result[i].gameStats.liveData.plays.allPlays[j].about.period == 4){
+							period = "OT";
+						}
 						
 						// conditions are to check how many players are involved in a goal.
 						if (result[i].gameStats.liveData.plays.allPlays[j].players.length >= 3) {
@@ -177,7 +177,7 @@ data =  {'action': "getStats"};
 						}
 					}
 				}
-				//add a goal for the winner of games that ended in shootout. (otherwise shown as tie)
+				//add a goal for the winner of games that ended in shootout.
 				if (awaySOscore > homeSOscore) {
 					teamScore.innerHTML = (result[i].gameStats.liveData.plays.currentPlay.about.goals.away+1)+"\xa0\xa0\xa0-\xa0\xa0\xa0"+result[i].gameStats.liveData.plays.currentPlay.about.goals.home;
 				} else if (homeSOscore > awaySOscore) {
@@ -292,7 +292,7 @@ $('.gameReelCell').click(function(){
 	
 });
 
-//slide the gamereel. Needs conditions
+//slide the gamereel.
 var buttonDisabler = 0;
 $("#slideLeft").click(function(){
 	if (actualGameCount > 5) {
@@ -309,20 +309,8 @@ $("#slideRight").click(function(){
 	}
 });
 
-//parallax background 
-var tausta1 = document.getElementById('t1')
-var scrollheight = document.body.scrollHeight // height of entire document
-var windowheight = window.innerHeight // height of browser window
-
-function parallaxtausta(){
- var scrolltop = window.pageYOffset
- var scrollamount = (scrolltop / (scrollheight-windowheight)) * 50
- tausta1.style.top = 0 + scrolltop * 0.8 +'px'
-}
-  
-window.addEventListener('scroll', function(){
- requestAnimationFrame(parallaxtausta)
-}, false)
-parallaxtausta();
-
+//parallax background
+$(window).scroll(function () {
+    $("body").css("background-position","0 " + ($(this).scrollTop() / 2) + "px");
+});
 }

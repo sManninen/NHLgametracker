@@ -1,22 +1,15 @@
 body {
+	background: url(taustakuva);
+	background-repeat: no-repeat;
     background-color: #1c1c1c;
+	background-size: 1903px 100%;
 	font-family: Arial, Georgia, serif;
 	margin: 0px;
-	padding: 0px;
-	padding-top: 6vh;
+	padding: 0px;	
 	min-width: 1903px;
 	max-width: 1903px;
-}
-
-#t1 {
-	background: url(taustakuva);
-	height: 80%;
-	width: 100%;
-	min-width: 1903px;
-	position: absolute;
-	z-index: -100;
-	margin-top: 250px;
-	background-repeat: repeat-y;
+	transition: 0s linear;
+    transition-property: background-position;
 }
 
 .gameReelWrapper {
@@ -25,9 +18,10 @@ body {
 	height: 365px;
 	width: 100%;
 	background-color: #323438;
+	border-top: 40px solid #1c1c1c;
 }
 
-#slideLeft, #slideRight {
+#slideLeft {
 	float: left;
 	width: 3%;
 }

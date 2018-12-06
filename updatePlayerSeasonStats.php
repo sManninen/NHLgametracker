@@ -1,4 +1,6 @@
 <?php
+//This should be run once a day for up to date stats.
+
 ini_set('max_execution_time', 300);
 
 $servername = "localhost";

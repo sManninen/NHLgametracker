@@ -51,8 +51,7 @@ function def() {
 	// Create connection
 	$conn = new mysqli($servername, $username, $password, $dbname);
 
-
-	$vientidata = array();
+	$exportData = array();
 
 	$playerStatsAway = array();
 	$playerStatsHome = array();
@@ -61,10 +60,7 @@ function def() {
 	$sql = "SELECT name, position, gamesPlayed, goals, assists, points, plusMinus, shots, hits, penaltyMinutes, wins, shotsAgainst, saves, goalsAgainst, savePercentage, goalAgainstAverage, shutouts FROM `".$awayTeam."`";
 	$result = $conn->query($sql);
 	if ($result->num_rows > 0) {
-		// output data of each row
 		while($row = $result->fetch_assoc()) {
-			//print_R($row);
-			//echo"<br></br>";
 			array_push($playerStatsAway, $row);			
 		}
 	}
@@ -73,10 +69,7 @@ function def() {
 	$sql = "SELECT name, position, gamesPlayed, goals, assists, points, plusMinus, shots, hits, penaltyMinutes, wins, shotsAgainst, saves, goalsAgainst, savePercentage, goalAgainstAverage, shutouts FROM `".$homeTeam."`";
 	$result = $conn->query($sql);
 	if ($result->num_rows > 0) {
-		// output data of each row
 		while($row = $result->fetch_assoc()) {
-			//print_R($row);
-			//echo"<br></br>";
 			array_push($playerStatsHome, $row);		
 		}
 	}		
@@ -87,7 +80,7 @@ function def() {
 	"awayStats" => $playerStatsAway,
 	"homeStats" => $playerStatsHome
 	);	
-	array_push($vientidata, $playerStats);
+	array_push($exportData, $playerStats);
 
 	echo(json_encode($playerStats, JSON_UNESCAPED_UNICODE));
 }
