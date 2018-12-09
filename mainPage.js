@@ -157,7 +157,7 @@ data =  {'action': "getStats"};
 							scorer = result[i].gameStats.liveData.plays.allPlays[j].players[0].player.fullName;
 							if (result[i].gameStats.liveData.plays.allPlays[j].players[1].playerType == "Assist"){
 								assist1 = (result[i].gameStats.liveData.plays.allPlays[j].players[1].player.fullName);
-							} else { assist1 = "Unassisted"}					
+							} else { assist1 = "Unassisted"; assist2="";}					
 							table.innerHTML += (team+"<br>"+"G: "+scorer+"<br>"+"A: "+assist1+assist2+"<br></br>");						
 						} else if (result[i].gameStats.liveData.plays.allPlays[j].players.length == 2 && result[i].gameStats.liveData.plays.allPlays[j].about.periodType == "SHOOTOUT") {
 							team = result[i].gameStats.liveData.plays.allPlays[j].team.triCode+" - "+"Shootout";
